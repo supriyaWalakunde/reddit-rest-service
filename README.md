@@ -1,1 +1,2 @@
-# reddit-rest-service
+# reddit-rest-service repository
+
