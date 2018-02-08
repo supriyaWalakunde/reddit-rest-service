@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> reddit: front page of the internet
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <link rel="stylesheet" type="text/css" href="HomePageStyle.css">
+    <script src="Controller.js"></script>
+
+</head>
+<body ng-app="mainapp" ng-controller="DisplayPostCtrl">
+<nav class="navbar navbar-style">
+    <div class="container-fuild">
+        <div class="navbar-header">
+            <a id="header-img" href="https://www.google.com"> <img src="Image/reddit.jpg" class="header-img"></a>
+        </div>
+        <ul class="nav navbar-nav tabmenu">
+            <li class="active"><a href="#">hot</a></li>
+            <li class="space"><a href="#">new</a></li>
+            <li><a href="#">rising</a></li>
+            <li><a href="#">controversial</a></li>
+            <li><a href="#">top</a></li>
+            <li><a href="#">gilded</a></li>
+            <li><a href="#">wiki</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="RedditHomeImage">
+    <img class="RedditHomeImage" ng-src="Image/redditHomePic.png">
+</div>
+<div ng-view></div>
+</body>
+</html>

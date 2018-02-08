@@ -1,0 +1,55 @@
+<div>
+    <div class="container-fuild">
+        <table class="body col-sm-10">
+            <tr ng-repeat="Post in PostData">
+                    <td><img ng-src="{{Post.data.thumbnail}}" err-src="defaultImage.png" class="Font">
+                    </td>
+                <td>
+                    <div id="PostTitle">
+                        <a class="title" href="{{Post.data.url}}">{{Post.data.title}}</a>
+              
+                        <span class="linkflairlabel">
+                      {{Post.data.link_flair_text}}
+                        </span>
+                        <span class="domain">
+                        {{Post.data.domain}}
+                        </span>
+
+                        <div class="expando-button.collapsed.video">
+
+                        </div>
+                        <p class="tagline">
+                            <span>Submitted{{date}}</span>
+                    <span class="by">
+                        <a>by {{Post.data.author}}</a>
+                        </span>
+                        <span class="to">
+                           <a>to {{Post.data.subreddit_name_prefixed}} </a>
+                        </span>
+                        </p>
+                        <ul class="flat-list">
+                            <!--<span>[-]</span>-->
+                            <a ng-click="expanded = !expanded" expanded>
+                                <span class="font-style" ng-bind="expanded ? '-' : '+'">[-]</span>
+                            </a>
+                            <a href="#!comments" class="Totalcomment"
+                               ng-click="setCommentURL(Post.data.permalink)">{{Post.data.num_comments}} comments</a>
+                            <li class="share">
+                                <a>share</a>
+                            </li>
+                            <li class="save"><a> save</a>
+                            </li>
+                            <li><a>hide</a>
+                            </li>
+                            <li class="report"><a class="post-sharing-button"> report</a>
+                            </li>
+                            <div class="ImageP" ng-show="expanded">
+                                <img class="ImageSize" ng-src="{{Post.data.thumbnail}}" err-src="defaultImage.png">
+                            </div>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

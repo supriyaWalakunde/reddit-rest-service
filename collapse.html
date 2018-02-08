@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> reddit: front page of the internet
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <link rel="stylesheet" type="text/css" href="HomePageStyle.css">
+    <script src="Controller.js"></script>
+</head>
+<body ng-app="main">
+   <div class="entry unvoted">
+            <p class="tagline">
+             <!-- <button data-toggle="collapse" data-target="#demo" >
+                    [-]</button>-->
+                <a ng-click="expanded = !expanded" expand>
+                    <span ng-bind="expanded ? '-' : '+'"> [-] </span>
+                </a>
+
+                <span>item.data.author</span>
+                <span class="color">item.data.ups points</span>
+            </p> <div id="demo" ng-show="collapse">
+            <div class="md">
+                item.data.body
+            </div>
+            <ul class="flat-list">
+                <li class="first">permalink</li>
+                <li>embed</li>
+                <li>save</li>
+                <li>report</li>
+                <li>reply</li>
+            </ul>
+            <div ng-include="'treeLevel.html'" onload="tasks = item.data.replies.data.children" >
+            </div>
+            </div>
+            </div> 
+</body> 
+</html>

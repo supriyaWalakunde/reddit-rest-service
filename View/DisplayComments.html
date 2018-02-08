@@ -1,0 +1,99 @@
+<div>
+    <div class="container-fuild">
+        <table class="body col-sm-10">
+            <tr>
+                <td class="col-sm-1 PostStyle">
+                    <img ng-src="{{PostInfo.thumbnail}}" err-src="defaultImage.png" class="Style" >
+                </td>
+                <td class="col-sm-8">
+                    <div id="PostTitle">
+                        <a class="title" href="{{Post.data.url}}">
+                            {{PostInfo.title}}
+                        </a>
+                        <span class="linkflairlabel">
+                             {{PostInfo.link_flair_text}}
+                        </span>
+                        <span class="domain">
+                        {{PostInfo.domain}}
+                        </span>
+
+                        <p class="tagline">
+                            <span>Submitted{{date}}
+                            </span>
+                                <span class="by">
+                                    <a>by {{PostInfo.author}}</a>
+                                </span>
+                                <span class="to">
+                                    <a>to {{PostInfo.subreddit_name_prefixed}} </a>
+                                </span>
+                        </p>
+                        <ul class="flat-list">
+                            <a class="Totalcomment">
+                                {{PostInfo.num_comments}} comments</a>
+                            <li class="share">
+                                <a>share</a>
+                            </li>
+                            <li class="save"><a> save</a>
+                            </li>
+                            <li><a>hide</a>
+                            </li>
+                            <li class="report"><a class="post-sharing-button"> report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container-fuild">
+        <div class="col-sm-11">
+                <span class="panestack-title">
+                    all {{PostInfo.num_comments}} comments
+                </span>
+        </div>
+        <div class="DisplayComment">
+            <script type="text/ng-template" id="treeLevel.html">
+                <ul>
+                    <div ng-repeat="item in Commemnts">
+                        <div class="col-sm-12 entry unvoted">
+                            <p class="tagline">
+                                <a ng-click="expanded = !expanded" expanded>
+                                    <span class="font-style" ng-bind="expanded ? '-' : '+'">[-]</span>
+                                </a>
+                        <span class="comment_author">
+                            <a href="https://www.reddit.com/user/{{item.data.author}}"></a>
+                                {{item.data.author}}
+                        </span>
+                        <span id="Author_Flair_Text">
+                             {{item.data.author_flair_text}}
+                        </span>
+                                <span class="color">{{item.data.ups}} points</span>
+                            </p>
+
+                            <div ng-show="expanded">
+                                <div id="demo">
+                                    <div class="md">
+                                        {{item.data.body}}
+                                    </div>
+                                    <ul class="flat-list">
+                                        <li><a>permalink</a></li>
+                                        <li><a>embed</a></li>
+                                        <li><a>save</a></li>
+                                        <li><a>report</a></li>
+                                        <li><a>reply</a></li>
+                                    </ul>
+                                </div>
+                                <div ng-include="'treeLevel.html'" onload="Commemnts = item.data.replies.data.children">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </script>
+            <div ng-include="'treeLevel.html'">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
